@@ -10,27 +10,30 @@ class Counter extends Component {
         };
     }
 
-
     onIncrease() {
         this.setState(
-            (prevState) => ({ number: prevState.number + 1}),
+            (prevState) => ({ number: prevState.number + 1 }),
             () => this.props.addSum(1)
-            );
+        );
     }
-q
+
     onDecrease() {
         this.setState(
-            (prevState) => ({ number : prevState.number - 1}), 
+            (prevState) => ({ number: prevState.number - 1 }),
             () => this.props.addSum(-1)
-            );
+        );
+    }
+
+    componentWillUnmount() { 
+        this.props.addSum(this.state.number * -1);
     }
 
     render() {
         return (
             <section>
-                <input type="button" value="+" onClick={() => {this.onIncrease()}} />
+                <input type="button" value="+" onClick={() => { this.onIncrease() }} />
                 <span>{this.state.number}</span>
-                <input type="button" value="-" onClick={() => {this.onDecrease()}} />
+                <input type="button" value="-" onClick={() => { this.onDecrease() }} />
             </section>
         );
     }
