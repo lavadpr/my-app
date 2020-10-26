@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import CounterGroupSum from './CounterGroupSum';
+
 
 class CounterSizeGenerator extends Component {
     constructor(props) {
@@ -20,8 +22,10 @@ class CounterSizeGenerator extends Component {
 
     render() {
         return <fieldset>
-            <label htmlFor="size">size: </label>
+            <label htmlFor="size">Generate </label>
             <input type="number" name="size" id="size" value={this.state.size} onChange={this.onChange} />
+            <label htmlFor="size"> Counters</label>
+            <CounterGroupSum sum = {this.state.size}/>
         </fieldset>;
     }
 }

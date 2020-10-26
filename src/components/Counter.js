@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Counter extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +13,7 @@ class Counter extends Component {
 
     onIncrease() {
         this.setState((prevState) => ({ 
-            number: prevState.number + 1      
+            number: prevState.number + 1,   
         }));
     }
 
