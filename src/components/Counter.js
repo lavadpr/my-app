@@ -12,15 +12,17 @@ class Counter extends Component {
 
 
     onIncrease() {
-        this.setState((prevState) => ({ 
-            number: prevState.number + 1,   
-        }));
+        this.setState(
+            (prevState) => ({ number: prevState.number + 1}),
+            () => this.props.addSum(1)
+            );
     }
-
+q
     onDecrease() {
-        this.setState((prevState) => ({ 
-            number: prevState.number - 1
-        }));
+        this.setState(
+            (prevState) => ({ number : prevState.number - 1}), 
+            () => this.props.addSum(-1)
+            );
     }
 
     render() {

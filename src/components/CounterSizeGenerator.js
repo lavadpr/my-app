@@ -9,7 +9,7 @@ class CounterSizeGenerator extends Component {
         this.onChange = this.onChange.bind(this);
 
         this.state = {
-            size:0
+            size: 0
         };
     }
     
@@ -20,12 +20,20 @@ class CounterSizeGenerator extends Component {
         }, () => this.props.onGenerate(value));
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.sum !== this.state.sum) {
+            this.setState((prevState) => ({ 
+                number: prevState.number + 1,   
+            }));
+        }
+    }
+
     render() {
         return <fieldset>
             <label htmlFor="size">Generate </label>
             <input type="number" name="size" id="size" value={this.state.size} onChange={this.onChange} />
             <label htmlFor="size"> Counters</label>
-            <CounterGroupSum sum = {this.state.size}/>
+            <CounterGroupSum sum = {this.props.sum}/>
         </fieldset>;
     }
 }
