@@ -8,6 +8,8 @@ const size = (state = 0, action) => {
     return state;
 };
 
-export default combineReducers({
+const reducers = combineReducers({
     size
 });
+
+export default reducers;

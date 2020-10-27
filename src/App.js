@@ -1,3 +1,4 @@
+import React from "react";
 import MultiCounter from "./components/MultiCounter"
 import './App.css';
 

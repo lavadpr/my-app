@@ -1,7 +1,11 @@
 import CounterGroup from "../components/CounterGroup";
 import { connect } from "react-redux";
 
+const mapStateToProps = (state) => ({
+    size: state.size
+})
+
 const CounterGroupContainer = 
-    connect(null, mapDispatchToProps)(CounterGroup);
+    connect(mapStateToProps)(CounterGroup);
 
 export default CounterGroupContainer;
